@@ -2,4 +2,4 @@
 
 This is a simple project of Redux-Toolkit-Thunk where I have used all the basic operations (CRUD) and I have used mockAPI to add, update and delete data.
 
-live link : learnreduxthunk.netlify.app
+live link : [learnreduxthunk.netlify.app](https://learnreduxthunk.netlify.app/)https://learnreduxthunk.netlify.app/
