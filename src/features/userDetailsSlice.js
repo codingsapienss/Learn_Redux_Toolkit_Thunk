@@ -5,9 +5,10 @@ const initialState = {
     users: [],
     loading: false,
     error: false,
+    searchData: []
 }
 
-// Create Action (Creating the form)
+//! Create Action (Creating the form)
 
 export const createUser = createAsyncThunk(
     'createUser',
@@ -104,7 +105,9 @@ export const userDetailsSlice = createSlice({
     name: 'userDetails',
     initialState,
     reducers: {
-
+        search: (state, action) => {
+            state.searchData = action.payload
+        }
     },
 
     //! Older Way of using extrareducers
@@ -224,6 +227,6 @@ export const userDetailsSlice = createSlice({
     }
 })
 
-// const { } = userDetailsSlice.actions
+export const { search } = userDetailsSlice.actions
 
 export default userDetailsSlice.reducer

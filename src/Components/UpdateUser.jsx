@@ -12,7 +12,7 @@ const UpdateUser = () => {
 
     const { id } = useParams()
 
-    const { users, loading } = useSelector(state => state.userDetails)
+    const { users } = useSelector(state => state.userDetails)
 
     useEffect(() => {
         if (id) {

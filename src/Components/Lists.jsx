@@ -12,7 +12,10 @@ const Lists = () => {
     const [id, setId] = useState()
 
     const dispatch = useDispatch()
-    const { users, loading } = useSelector(state => state.userDetails)
+    const { users, loading, searchData } = useSelector(state => state.userDetails)
+
+    // console.log(searchData);
+    // console.log(users);
 
     useEffect(() => {
         dispatch(showUser())
@@ -38,13 +41,21 @@ const Lists = () => {
 
                 <h2 style={{ textAlign: 'center', margin: '30px' }} >  All Data</h2>
 
-
                 <div className="lists">
 
                     {users.length === 0 && <h1> No user data found </h1>}
 
-                    {
-                        users?.map(({ id, name, age, email, gender }) => {
+                    {users && users.filter(user => {
+                        if (searchData.length === 0) {
+                            return user
+                        }
+                        else {
+                            return user.name.toLowerCase().includes(searchData.toLowerCase())
+                        }
+                    })
+
+
+                        .map(({ id, name, age, email, gender }) => {
                             return (
                                 <div key={id} className="card" style={{ width: '18rem' }}>
                                     <div className="card-body  d-flex flex-column justify-content-center align-items-center">
